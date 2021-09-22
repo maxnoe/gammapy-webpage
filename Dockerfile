@@ -15,7 +15,7 @@ RUN curl -o tmp/environment.yml https://gammapy.org/download/install/gammapy-0.1
 
 WORKDIR tmp/
 RUN conda update conda
-RUN conda install mamba
+RUN conda install -c conda-forge mamba 
 RUN mamba install -q -y pyyaml
 RUN python binder.py
 
