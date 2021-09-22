@@ -5,7 +5,7 @@ FROM continuumio/miniconda3:4.7.12
 MAINTAINER Gammapy developers <gammapy@googlegroups.com>
 
 # compilers
-RUN apt-get update && apt-get install -y build-essential
+RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essential
 RUN pip install --upgrade pip
 RUN apt install -y curl
 
