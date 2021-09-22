@@ -5,9 +5,9 @@ FROM condaforge/mambaforge
 MAINTAINER Gammapy developers <gammapy@googlegroups.com>
 
 # compilers
-#RUN apt-get --allow-releaseinfo-change update && apt-get install -y build-essential
+RUN apt-get --allow-releaseinfo-change update
 #RUN pip install --upgrade pip
-#RUN apt install -y curl
+RUN apt install -y curl
 
 # install dependencies - including the stable version of Gammapy
 COPY binder.py tmp/
