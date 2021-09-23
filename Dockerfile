@@ -1,12 +1,11 @@
 # This is the Dockerfile to run Gammapy on Binder.
 #
 
-FROM condaforge/mambaforge
+FROM condaforge/mambaforge-pypy3
 MAINTAINER Gammapy developers <gammapy@googlegroups.com>
 
 # compilers
 RUN apt-get --allow-releaseinfo-change update
-#RUN pip install --upgrade pip
 RUN apt install -y curl
 
 # install dependencies - including the stable version of Gammapy
@@ -14,8 +13,6 @@ COPY binder.py tmp/
 RUN curl -o tmp/environment.yml https://gammapy.org/download/install/gammapy-0.18.2-environment.yml
 
 WORKDIR tmp/
-#RUN conda update conda
-#RUN conda install -c conda-forge mamba
 RUN mamba install -q -y pyyaml
 RUN python binder.py
 
